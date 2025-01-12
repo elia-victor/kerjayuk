@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Platform } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-import { HelloWave } from '@/components/HelloWave';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -8,47 +9,93 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
+      headerBackgroundColor={{ light: '#FFF', dark: '#FFF' }}
+    >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+        <ThemedText style={{ ...styles.blackText }}>Hi, Good Morning!</ThemedText>
+        <LinearGradient
+          colors={['#F82C17', '#C51060']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.container}
+        >
+          <ThemedView style={{ ...styles.avatarContainer, marginBottom: 15}}>
+            <ThemedView style={{ ...styles.noBackgroundContainer, flexDirection: 'row' }}>
+              <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+              <ThemedView style={{ backgroundColor: 'transparent', marginLeft: 10 }}>
+                <ThemedText style={{ ...styles.text, fontWeight: 500}}>Tabay</ThemedText>
+                <ThemedText type='bottomTabTitle' style={{ ...styles.text, fontStyle: 'italic' }}>UI/UX Designer</ThemedText>
+              </ThemedView>
+            </ThemedView>
+            <ThemedView style={styles.noBackgroundContainer}>
+              <ThemedText type='bottomTabTitle' style={{ ...styles.text, fontStyle: 'italic', textAlign: 'right' }}>Member since</ThemedText>
+              <ThemedText style={{ ...styles.text, fontWeight: 500, textAlign: 'right' }}>01 Juni 2021</ThemedText>
+            </ThemedView>
+          </ThemedView>
+          <ThemedView style={styles.avatarContainer}>
+            <ThemedView style={{ ...styles.noBackgroundContainer, flexDirection: 'row' }}>
+              <ThemedView style={styles.noBackgroundContainer}>
+                <ThemedText type='bottomTabTitle' style={styles.text}>Location</ThemedText>
+                <ThemedText style={{ ...styles.text, fontWeight: 500 }}>Kantor Sahid</ThemedText>
+              </ThemedView>
+            </ThemedView>
+            <ThemedView style={{ ...styles.noBackgroundContainer, justifyContent: 'flex-end' }}>
+              <ThemedText type='bottomTabTitle' style={{ ...styles.text, fontStyle: 'italic', textAlign: 'right' }}>ICO</ThemedText>
+            </ThemedView>
+          </ThemedView>
+        </LinearGradient>
+        <ThemedText style={{ ...styles.blackText, fontWeight: 800 }}>Today's activity</ThemedText>
+        <ThemedView style={{ ...styles.noBackgroundContainer, ...styles.container, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <ThemedView style={{ ...styles.noBackgroundContainer, alignItems: 'center' }}>
+            <IconSymbol size={35} name="checkin.fill" color={"#F82C17"} />
+            <ThemedText style={{ ...styles.blackText, fontWeight: 800 }}>08:30</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Check In</ThemedText>
+          </ThemedView>
+          <ThemedView style={{ ...styles.noBackgroundContainer, alignItems: 'center' }}>
+            <IconSymbol size={35} name="working.fill" color={"#F82C17"} />
+            <ThemedText style={{ fontWeight: 800 }}>03:30:00</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Working Hours</ThemedText>
+          </ThemedView>
+          <ThemedView style={{ ...styles.noBackgroundContainer, alignItems: 'center' }}>
+            <IconSymbol size={35} name="checkoutTime.fill" color={"#F82C17"} />
+            <ThemedText style={{ ...styles.blackText, fontWeight: 800 }}>--:--</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Check Out</ThemedText>
+          </ThemedView>
+        </ThemedView>
+        <ThemedText style={{ ...styles.blackText, fontWeight: 800 }}>PCS News</ThemedText>
+        <ThemedText style={{ ...styles.blackText, fontWeight: 800 }}>Online</ThemedText>
+        <ThemedView style={{ ...styles.onlineContainer, flexDirection: 'row' }}>
+          <ThemedView style={{  ...styles.noBackgroundContainer, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText, fontWeight: 500}}>Tabay</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Sahid</ThemedText>
+          </ThemedView>
+          <ThemedView style={{  ...styles.noBackgroundContainer, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText, fontWeight: 500}}>Tabay</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Sahid</ThemedText>
+          </ThemedView>
+          <ThemedView style={{  ...styles.noBackgroundContainer, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText, fontWeight: 500}}>Tabay</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Sahid</ThemedText>
+          </ThemedView>
+          <ThemedView style={{  ...styles.noBackgroundContainer, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText, fontWeight: 500}}>Tabay</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Sahid</ThemedText>
+          </ThemedView>
+          <ThemedView style={{  ...styles.noBackgroundContainer, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText, fontWeight: 500}}>Tabay</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Sahid</ThemedText>
+          </ThemedView>
+          <ThemedView style={{  ...styles.noBackgroundContainer, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <Image style={styles.avatar} source={{ uri: 'https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg' }} />
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText, fontWeight: 500}}>Tabay</ThemedText>
+            <ThemedText type='bottomTabTitle' style={{ ...styles.blackText }}>Sahid</ThemedText>
+          </ThemedView>
+        </ThemedView>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -56,19 +103,45 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
+    backgroundColor: '#FFF',
+    alignItems: 'flex-start',
+    gap: 8,
+  },
+  noBackgroundContainer: {
+    backgroundColor: 'transparent'
+  },
+  onlineContainer: {
+    backgroundColor: '#FFF',
+    borderRadius: 20,
+    boxShadow: '0px 0px 4px 0 rgba(0, 0, 0, 0.2)',
+    height: 120,
+    padding: 20,
+    width: '98%',
+    marginLeft: 2
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderColor: 'white',
+    borderWidth: 1,
+  },
+  avatarContainer: {
+    backgroundColor: 'transparent',
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+    justifyContent: 'space-between',
+    width: '100%', 
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  text: {
+    color: '#FFF'
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  blackText: {
+    color: '#000'
   },
+  container: {
+    width: '100%',
+    borderRadius: 10,
+    padding: 20,
+    flexDirection: 'column',
+  }
 });

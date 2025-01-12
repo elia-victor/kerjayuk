@@ -1,4 +1,4 @@
-// This file is a fallback for using MaterialIcons on Android and web.
+// This file is a fallback for using MaterialIcons on Android and web.home
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SymbolWeight } from 'expo-symbols';
@@ -10,7 +10,14 @@ const MAPPING = {
   // See MaterialIcons here: https://icons.expo.fyi
   // See SF Symbols in the SF Symbols app on Mac.
   'house.fill': 'home',
-  'paperplane.fill': 'send',
+  'attendance.fill': 'event-available',
+  'form.fill': 'assignment',
+  'checkout.fill': 'logout',
+  'settings.fill': 'settings',
+  'checkin.fill': 'check-circle-outline',
+  'working.fill': 'update',
+  'checkoutTime.fill': 'access-time',
+  'notification.outline': 'notifications-none',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
 } as Partial<
@@ -35,7 +42,7 @@ export function IconSymbol({
 }: {
   name: IconSymbolName;
   size?: number;
-  color: string | OpaqueColorValue;
+  color?: string | OpaqueColorValue;
   style?: StyleProp<ViewStyle>;
   weight?: SymbolWeight;
 }) {

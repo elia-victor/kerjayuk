@@ -5,7 +5,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'logo' | 'bottomTabTitle';
 };
 
 export function ThemedText({
@@ -26,6 +26,8 @@ export function ThemedText({
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
+        type === 'logo' ? styles.logo : undefined,
+        type === 'bottomTabTitle' ? styles.bottomTabTitle : undefined,
         style,
       ]}
       {...rest}
@@ -35,7 +37,7 @@ export function ThemedText({
 
 const styles = StyleSheet.create({
   default: {
-    fontSize: 16,
+    fontSize: 18,
     lineHeight: 24,
   },
   defaultSemiBold: {
@@ -48,6 +50,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     lineHeight: 32,
   },
+  logo: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    lineHeight: 32,
+    fontFamily: 'Baloo'
+  },
   subtitle: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -57,4 +65,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#0a7ea4',
   },
+  bottomTabTitle: {
+    lineHeight: 14,
+    fontSize: 12
+  }
 });
